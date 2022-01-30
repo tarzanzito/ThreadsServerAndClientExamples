@@ -1,0 +1,38 @@
+﻿
+//NOTES:
+
+//https://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
+//https://devblogs.microsoft.com/pfxteam/task-run-vs-task-factory-startnew/
+
+//https://www.youtube.com/watch?v=QyJ2Tn_UPjw
+
+
+
+
+//https://stackoverflow.com/questions/35734051/c-sharp-task-thread-pool-running-100-tasks-across-only-10-threads
+    //private static async RunBlockAsync(int numThreadsSomeTime)
+    //{
+
+    //    var block = new System.Threading.Tasks.Dataflow.ActionBlock<SomeData>(
+    //    () => RunOneSync(0), // What to do on each item
+    //    new System.Threading.Tasks.Dataflow.ExecutionDataflowBlockOptions { MaxDegreeOfParallelism = 10 }); // How many items at the same time
+
+    //    foreach (var item in items)
+    //    {
+    //        block.Post(item); // Post all items to the block
+    //    }
+
+    //    block.Complete(); // Signal completion
+    //    await block.Completion; // Asynchronously wait for completion.
+    //}
+}
+
+
+//https://devblogs.microsoft.com/pfxteam/task-run-vs-task-factory-startnew/
+
+//Task.Run(someAction);
+//é exatamente equivalente a:
+//Task.Factory.StartNew(someAction, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Default);
+
+
+//http://www.fabriciorissetto.com/blog/threadsetasks/
